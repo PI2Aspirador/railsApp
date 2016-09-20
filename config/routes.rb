@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
+  devise_for :models
   devise_for :users
 
-  devise_scope :user do
-    root to: "devise/sessions#new"
-  end
+  root 'static_page#home'
+
+  #devise_scope :user do
+  #  root to: "devise/sessions#new"
+  #end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
