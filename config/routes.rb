@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   root 'static_page#home'
 
+  get 'aspirador/agendar' => 'aspirador#agendar'
   #devise_scope :user do
   #  root to: "devise/sessions#new"
   #end

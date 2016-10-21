@@ -5,7 +5,7 @@
         <ul class="title-area">
             <li class="name">
                 <h1>
-                    <a href="#">Your Name Here</a>
+                    <a href="#">R2-PI2</a>
                 </h1>
             </li>
             <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
@@ -22,6 +22,9 @@
                     <li>
                       <%= link_to "Encerrar Sessão", destroy_user_session_path, method: :delete %>
                     </li>
+                    <li>
+                      <%= link_to "Agendar", aspirador_agendar_path %>
+                    </li>
                   <% else %>
                     <li>
                       <%= link_to "Entrar", new_user_session_path %>
@@ -32,13 +35,7 @@
                 </li>
 
                 <li>
-                    <a href="#about">About</a>
-                </li>
-                <li>
-                    <a href="#portfolio">Portfolio</a>
-                </li>
-                <li>
-                    <a href="#contact">Contact Us</a>
+                    <a href="#about">Sobre o R2-PI2</a>
                 </li>
             </ul>
 
