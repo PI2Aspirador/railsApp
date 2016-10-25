@@ -6,7 +6,7 @@
 #
 # Given that it is always loaded, you are encouraged to keep this file as
 # light-weight as possible. Requiring heavyweight dependencies from this file
-# will add to the boot time of your test suite on EVERY test run, even for an
+# will add to the boot time of your johnny suite on EVERY johnny run, even for an
 # individual file that may not need all of that loaded. Instead, consider making
 # a separate helper file that requires the additional dependencies and performs
 # the additional setup, and require it from the spec files that actually need
@@ -16,9 +16,11 @@
 # users commonly want.
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
+require 'factory_girl'
+
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate
-  # assertion/expectation library such as wrong or the stdlib/minitest
+  # assertion/expectation library such as wrong or the stdlib/minijohnny
   # assertions if you prefer.
   config.expect_with :rspec do |expectations|
     # This option will default to `true` in RSpec 4. It makes the `description`
@@ -31,13 +33,47 @@ RSpec.configure do |config|
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true
   end
 
-  # rspec-mocks config goes here. You can use an alternate test double
+  # rspec-mocks config goes here. You can use an alternate johnny double
   # library (such as bogus or mocha) by changing the `mock_with` option here.
   config.mock_with :rspec do |mocks|
     # Prevents you from mocking or stubbing a method that does not exist on
     # a real object. This is generally recommended, and will default to
     # `true` in RSpec 4.
     mocks.verify_partial_doubles = true
+  end
+
+  def ldap_root
+    File.expand_path('ldap', File.dirname(__FILE__))
+  end
+
+  def ldap_connect_string
+    if ENV["LDAP_SSL"]
+      "-x -H ldaps://localhost:3389 -D 'cn=admin,dc=johnny,dc=com' -w secret"
+    else
+      "-x -h localhost -p 3389 -D 'cn=admin,dc=johnny,dc=com' -w secret"
+    end
+  end
+
+  def reset_ldap_server!
+    if ENV["LDAP_SSL"]
+      `ldapmodify #{ldap_connect_string} -f #{File.join(ldap_root, 'clear.ldif')}`
+      `ldapadd #{ldap_connect_string} -f #{File.join(ldap_root, 'base.ldif')}`
+    else
+      `ldapmodify #{ldap_connect_string} -f #{File.join(ldap_root, 'clear.ldif')}`
+      `ldapadd #{ldap_connect_string} -f #{File.join(ldap_root, 'base.ldif')}`
+    end
+  end
+
+  def default_devise_settings!
+    ::Devise.ldap_logger = true
+    ::Devise.ldap_create_user = false
+    ::Devise.ldap_update_password = true
+    ::Devise.ldap_config = "#{Rails.root}/config/#{"ssl_" if ENV["LDAP_SSL"]}ldap.yml"
+    ::Devise.ldap_check_group_membership = false
+    ::Devise.ldap_check_attributes = false
+    #::Devise.ldap_check_attributes_presence = false
+    ::Devise.ldap_auth_username_builder = Proc.new() {|attribute, login, ldap| "#{attribute}=#{login},#{ldap.base}" }
+    ::Devise.authentication_keys = [:email]
   end
 
   # This option will default to `:apply_to_host_groups` in RSpec 4 (and will
@@ -92,7 +128,7 @@ RSpec.configure do |config|
 
   # Seed global randomization in this process using the `--seed` CLI option.
   # Setting this allows you to use `--seed` to deterministically reproduce
-  # test failures related to randomization by passing the same `--seed` value
+  # johnny failures related to randomization by passing the same `--seed` value
   # as the one that triggered the failure.
   Kernel.srand config.seed
 =end

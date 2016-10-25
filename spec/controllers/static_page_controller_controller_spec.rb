@@ -1,5 +1,5 @@
 require 'rails_helper'
 
-RSpec.describe StaticPageControllerController, type: :controller do
+RSpec.describe StaticPageController, type: :controller do
 
 end

@@ -1,0 +1,73 @@
+# ldapadd -x -h localhost -p 3389 -D "cn=admin,dc=johnny,dc=com" -w secret -f base.ldif
+
+dn: dc=johnny,dc=com
+objectClass: dcObject
+objectClass: organizationalUnit
+dc: johnny
+ou: johnny
+
+dn: ou=people,dc=johnny,dc=com
+objectClass: organizationalUnit
+ou: people
+
+dn: ou=others,dc=johnny,dc=com
+objectClass: organizationalUnit
+ou: others
+
+dn: ou=groups,dc=johnny,dc=com
+objectClass: organizationalUnit
+ou: groups
+
+# example.user@johnny.com, people, johnny.com
+dn: cn=example.user@johnny.com,ou=people,dc=johnny,dc=com
+objectClass: inetOrgPerson
+objectClass: authorizations
+sn: User
+uid: example_user
+mail: example.user@johnny.com
+cn: example.user@johnny.com
+authorizationRole: blogUser
+userPassword:: e1NTSEF9ZXRYaE9NcjRjOGFiTjlqYUxyczZKSll5MFlaZUF1NURCVWhhY0E9PQ=
+ =
+
+# other.user@johnny.com
+dn: cn=other.user@johnny.com,ou=others,dc=johnny,dc=com
+objectClass: inetOrgPerson
+objectClass: authorizations
+objectClass: organizationalPerson
+objectClass: person
+objectClass: top
+sn: Other
+uid: other_user
+cn: other.user@johnny.com
+authorizationRole: blogUser
+userPassword:: e1NIQX1IQXdtdk13RGF1ZUpyZDhwakxXMzZ6Yi9jTUU9
+
+# example.admin@johnny.com, people, johnny.com
+dn: cn=example.admin@johnny.com,ou=people,dc=johnny,dc=com
+objectClass: inetOrgPerson
+objectClass: authorizations
+objectClass: organizationalPerson
+objectClass: person
+objectClass: top
+sn: Admin
+uid: example_admin
+cn: example.admin@johnny.com
+authorizationRole: blogAdmin
+userPassword:: e1NIQX0wcUNXaERISGFwWmc3ekJxZWRRanBzNW1EUDA9
+
+# users, groups, johnny.com
+dn: cn=users,ou=groups,dc=johnny,dc=com
+objectClass: authorizations
+objectClass: groupOfUniqueNames
+objectClass: top
+uniqueMember: cn=example.user@johnny.com,ou=people,dc=johnny,dc=com
+authorizationRole: cn=example.admin@johnny.com,ou=people,dc=johnny,dc=com
+cn: users
+
+# users, groups, johnny.com
+dn: cn=admins,ou=groups,dc=johnny,dc=com
+objectClass: groupOfUniqueNames
+objectClass: top
+uniqueMember: cn=example.admin@johnny.com,ou=people,dc=johnny,dc=com
+cn: admins

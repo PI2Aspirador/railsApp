@@ -1,0 +1,26 @@
+dn: cn=admins,ou=groups,dc=johnny,dc=com
+changetype: delete
+
+dn: cn=users,ou=groups,dc=johnny,dc=com
+changetype: delete
+
+dn: cn=example.admin@johnny.com,ou=people,dc=johnny,dc=com
+changetype: delete
+
+dn: cn=example.user@johnny.com,ou=people,dc=johnny,dc=com
+changetype: delete
+
+dn: cn=other.user@johnny.com,ou=others,dc=johnny,dc=com
+changetype: delete
+
+dn: ou=groups,dc=johnny,dc=com
+changetype: delete
+
+dn: ou=people,dc=johnny,dc=com
+changetype: delete
+
+dn: ou=others,dc=johnny,dc=com
+changetype: delete
+
+dn: dc=johnny,dc=com
+changetype: delete
