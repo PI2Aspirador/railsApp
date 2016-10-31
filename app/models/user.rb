@@ -12,7 +12,9 @@ def ldap_before_save
 end
 
 def save_in_ldap
-  file = File.open("/home/johnny/users.ldif", "w")
+  directory = File.expand_path("~/users.ldif")
+  puts directory+"********************************************************"
+  file = File.open(directory, "w")
   file.write("dn: uid=" + self.email + ",ou=tech,dc=johnny,dc=com
 objectClass: top
 objectClass: account
@@ -28,14 +30,14 @@ gecos: " + self.email + ",user,user,435-555-555,801-555-555
 userPassword: " + self.password + "
 shadowLastChange: 0
 shadowMax: 0
-shadowWarning: 0") 
+shadowWarning: 0")
 
   file.close
 
-  add_ldap = 'ldapadd -x -w "admin" -D "cn=admin,dc=johnny,dc=com" -f /home/johnny/users.ldif'
+  add_ldap = 'ldapadd -x -w "admin" -D "cn=admin,dc=johnny,dc=com" -f '+ directory
   system add_ldap
 
-  File.delete("/home/johnny/users.ldif")
+  File.delete(directory)
 end
 
 private
