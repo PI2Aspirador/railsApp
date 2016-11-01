@@ -25,6 +25,59 @@
 
  /**************************************************************jumbo**********************************/
 
+ ul.topnav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: rgba(234, 234, 234, 0.8);
+
+}
+
+ul.topnav li {float: right;}
+
+ul.topnav li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+ul.topnav li a:hover:not(.active) {background-color: #111;}
+
+ul.topnav li a.active {background-color: #4CAF50;}
+
+ul.topnav li.right {float: right;}
+
+.top-bar-section ul li, .top-bar-section li:not(.has-form) a:not(.button){
+    background: none;
+
+}
+
+.top-bar-section li:not(.has-form) a:hover:not(.button){
+    background: none;
+    text-decoration: underline;
+    color: #000000;
+
+}
+
+.top-bar-section ul li > a{
+    color: #000000;
+}
+
+@media screen and (max-width: 600px){
+    ul.topnav li.right,
+    ul.topnav li {float: none;}
+}
+
+ .active {
+     background-color: #4CAF50;
+ }
+
  .jumbo{
      background-image: url(jumbo_bg.jpg);
      background-size: cover;
@@ -43,27 +96,14 @@
      background: #eaeaea;
  }
 
- .name{
+ #name{
      background: #000099;
-     padding: 5px 30px;
-     height: 60px !important;
+     //padding: 5px 30px;
+     //height: 60px !important;
+     float: left;
  }
 
- .top-bar-section ul li, .top-bar-section li:not(.has-form) a:not(.button){
-     background: none;
 
- }
-
- .top-bar-section li:not(.has-form) a:hover:not(.button){
-     background: none;
-     text-decoration: underline;
-     color: #000000;
-
- }
-
- .top-bar-section ul li > a{
-     color: #000000;
- }
 
  .active{
      text-decoration: underline;
