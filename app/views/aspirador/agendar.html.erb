@@ -1,15 +1,21 @@
 <%= stylesheet_link_tag "foundation-datepicker" %>
-<table class="table">
+</br>
+</br>
+</br>
+</br>
+<div class="small-8 small-centered columns">
+
+	<table class="table">
 	<thead>
 		<tr>
-			<th>Data de Aspiração&nbsp;
-				<a href="#" class="button tiny" id="dp4" data-date-format="yyyy-mm-dd" data-date="2016-10-20" style="margin-left-2px;background-color:#000099">Alterar</a>
-			</th>
+			<th>Data de aspiração&nbsp;
+				<a href="#" class="button tiny" id="dp4" data-date-format="yyyy-mm-dd hh:ii" data-date="2012-02-20 12:00">Alterar</a>
+			</th
 		</tr>
 	</thead>
 	<tbody>
 		<tr>
-			<td id="startDate" style="text-align:center">2016-10-20</td>
+			<td id="startDate">2012-02-20 12:00</td>
 		</tr>
 	</tbody>
 </table>
@@ -18,8 +24,12 @@
 <script>
 $(function(){
   // implementation of custom elements instead of inputs
-	var startDate = new Date(2016, 1, 20);
-	$('#dp4').fdatepicker()
+	var startDate = new Date(2012, 1, 20);
+	$('#dp4').fdatepicker({
+		format: 'mm-dd-yyyy hh:ii',
+		disableDblClickSelection: true,
+		pickTime: true
+	})
 		.on('changeDate', function (ev) {
 		$('#alert').hide();
 		startDate = new Date(ev.date);
@@ -28,3 +38,4 @@ $(function(){
 	});
 });
 </script>
+</div>
