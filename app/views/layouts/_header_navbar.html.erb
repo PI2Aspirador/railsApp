@@ -6,7 +6,7 @@
 		<div class="navbar-header">
 			<%= link_to root_url, class: "navbar-brand" do %>
 			<!-- Logo -->
-			<%= image_tag("logo.jpg",height: '32', width: '32')%>
+			<!--%= image_tag("logo.jpg",height: '32', width: '32')%-->
 			<!-- Name -->
 			<strong>R2-PI2</strong>
 			<% end %>
@@ -21,7 +21,6 @@
 
 								<!-- User control -->
 				<% if user_signed_in? %>
-					<li><%= link_to "Meu perfil", root_path %></li>
 					<li><%= link_to "Agendamentos", agendas_path %></li><!--Link to the events-->
 					<li><%= link_to "Encerrar Sessão", destroy_user_session_path, method: :delete %></li>
 
