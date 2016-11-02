@@ -1,7 +1,15 @@
-<div class="row">
-    <div class="small-6 large-centered columns">
-<h2>Novo Usuário</h2>
+<section id="title" class="emerald">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-6">
+				<h1>Cadastre-se</h1>
 
+			</div>
+		</div>
+	</div>
+</section>
+<section id="portfolio" class="container">
+	<div class="col-md-6 col-md-offset-3">
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
@@ -29,5 +37,5 @@
 <% end %>
 
 <%= render "devise/shared/links" %>
-</div>
-</div>
+	</div>
+</section>

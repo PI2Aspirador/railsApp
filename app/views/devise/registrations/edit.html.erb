@@ -1,7 +1,15 @@
-<div class="row">
-    <div class="small-6 large-centered columns">
-<h2>Editar <%= resource_name.to_s.humanize %></h2>
-
+<section id="title" class="emerald">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-6">
+				<h1>Atualizar Cadastro</h1>
+				<p>Mantenha seus dados atualizados!</p>
+			</div>
+		</div>
+	</div>
+</section>
+<section id="portfolio" class="container">
+	<div class="col-md-6 col-md-offset-3">
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
 
@@ -38,10 +46,7 @@
   </div>
 <% end %>
 
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
 <%= link_to "Back", :back %>
-</div>
-</div>
+  </div>
+</section>

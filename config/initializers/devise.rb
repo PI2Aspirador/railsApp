@@ -1,23 +1,23 @@
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
-  # ==> LDAP Configuration
-  config.ldap_logger = true
-  config.ldap_create_user = true
-  config.ldap_update_password = true
-  config.ldap_config = "#{Rails.root}/config/ldap.yml"
-  config.ldap_check_group_membership = false
+  # ==> LDAP Configuration 
+  # config.ldap_logger = true
+  # config.ldap_create_user = false
+  # config.ldap_update_password = true
+  # config.ldap_config = "#{Rails.root}/config/ldap.yml"
+  # config.ldap_check_group_membership = false
   # config.ldap_check_group_membership_without_admin = false
-  config.ldap_check_attributes = false
-  config.ldap_use_admin_to_bind = true
-  config.ldap_ad_group_check = false
+  # config.ldap_check_attributes = false
+  # config.ldap_use_admin_to_bind = false
+  # config.ldap_ad_group_check = false
 
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  config.secret_key = '7f7d9546cf395fb17aa95f8ed5b0a6fd872e4ccd37e6d19fdb0db4f6ca66c128c83573e1519ceb350f040b5ff0aaa3fb031c01c9cfd1e72da04510674c1bb319'
+  # config.secret_key = '144f7f825486b334d4cc8d467794c755ec415057612cd1246e3b76ee56c003921065695336ca9a4b8f24d5ecccbda04c43f4ef1f2f1b293853f9d23bcdcc470d'
 
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
@@ -119,7 +119,7 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 11
 
   # Set up a pepper to generate the hashed password.
-  # config.pepper = 'e17b79572c38a669b3b68b991f6613636bfd5683b32a31aa61520011427d19aa5cf09bf745aba2bb5784a275947fc1d2984b6156083be7f200b323c7bf228f28'
+  # config.pepper = 'b1d3332f709023ace24b1474a461549227029506347a34c3f38e7af734936fe35894db17b484ff7d37b80624ab802fdadf30e373c9b4201e86af5beafc4b7200'
 
   # Send a notification email when the user's password is changed
   # config.send_password_change_notification = false

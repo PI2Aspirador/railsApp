@@ -1,0 +1,47 @@
+<!-- Navigation bar -->
+<header class="navbar navbar-inverse navbar-fixed-top wet-asphalt" role="banner">
+	<div class="container">
+
+		<!-- Nikn logo/name linked to root_path -->
+		<div class="navbar-header">
+			<%= link_to root_url, class: "navbar-brand" do %>
+			<!-- Logo -->
+			<%= image_tag("logo.jpg",height: '32', width: '32')%>
+			<!-- Name -->
+			<strong>R2-PI2</strong>
+			<% end %>
+		</div><!-- End of logo in the navigation bar -->
+
+		<!-- Links in the navigation bar -->
+		<div class="collapse navbar-collapse">
+			<ul class="nav navbar-nav navbar-right">
+				<li><%= link_to "Início", root_url %></li><!-- Button to home -->
+
+
+
+								<!-- User control -->
+				<% if user_signed_in? %>
+					<li><%= link_to "Meu perfil", root_path %></li>
+					<li><%= link_to "Agendamentos", agendas_path %></li><!--Link to the events-->
+					<li><%= link_to "Encerrar Sessão", destroy_user_session_path, method: :delete %></li>
+
+				<% else %>
+					<li><%= link_to "Entrar", new_user_session_path %></li>
+				<% end %>
+				<script>
+					$(function() {
+						$('li').click(function() {
+							// If this isn't already active
+							if (!$(this).hasClass('active')) {
+								// Remove the class from anything that is active
+								$('li.active').removeClass('active');
+								// And make this active
+								$(this).addClass('active');
+							}
+						});
+					});
+				</script>
+			</ul>
+		</div><!-- end of links in the navigation bar -->
+	</div><!-- End of container -->
+</header><!--/header-->

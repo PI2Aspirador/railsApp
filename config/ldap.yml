@@ -4,15 +4,15 @@
 # environment if you need something different per enviornment.
 authorizations: &AUTHORIZATIONS
   allow_unauthenticated_bind: false
-  group_base: ou=tech,dc=johnny,dc=com
+  group_base: ou=groups,dc=test,dc=com
   ## Requires config.ldap_check_group_membership in devise.rb be true
   # Can have multiple values, must match all to be authorized
   required_groups:
     # If only a group name is given, membership will be checked against "uniqueMember"
-    - cn=admins,ou=tech,dc=johnny,dc=com
-    - cn=users,ou=tech,dc=johnny,dc=com
+    - cn=admins,ou=groups,dc=test,dc=com
+    - cn=users,ou=groups,dc=test,dc=com
     # If an array is given, the first element will be the attribute to check against, the second the group name
-    - ["moreMembers", "cn=users,ou=tech,dc=johnny,dc=com"]
+    - ["moreMembers", "cn=users,ou=groups,dc=test,dc=com"]
   ## Requires config.ldap_check_attributes in devise.rb to be true
   ## Can have multiple attributes and values, must match all to be authorized
   require_attribute:
@@ -25,9 +25,9 @@ development:
   host: localhost
   port: 389
   attribute: cn
-  base: ou=tech,dc=johnny,dc=com
-  admin_user: cn=admin,dc=johnny,dc=com
-  admin_password: admin
+  base: ou=people,dc=test,dc=com
+  admin_user: cn=admin,dc=test,dc=com
+  admin_password: admin_password
   ssl: false
   # <<: *AUTHORIZATIONS
 
@@ -37,7 +37,7 @@ test:
   attribute: cn
   base: ou=people,dc=test,dc=com
   admin_user: cn=admin,dc=test,dc=com
-  admin_password: admin
+  admin_password: admin_password
   ssl: simple_tls
   # <<: *AUTHORIZATIONS
 
@@ -47,6 +47,6 @@ production:
   attribute: cn
   base: ou=people,dc=test,dc=com
   admin_user: cn=admin,dc=test,dc=com
-  admin_password: admin
+  admin_password: admin_password
   ssl: start_tls
   # <<: *AUTHORIZATIONS

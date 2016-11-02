@@ -1,0 +1,114 @@
+.portal-posts {
+  margin-top: 0;
+  margin-bottom: 30px;
+  padding: 0;
+}
+.portal-post {
+  margin-top: 0;
+  margin: 10px;
+  padding: 10px;
+  width: 30%;
+  display: inline-block;
+  background-color: white;
+  vertical-align: top;
+  border: 1px solid #eee;
+}
+.portal-post:hover {
+  background-color: #e4e4ff;
+}
+.portal-post .image {
+  clear: both;
+  display: block;
+  padding: 0px;
+  width: 100%;
+  border: 1px solid #eee;
+}
+.portal-post .title {
+  padding: 5px;
+  font-weight: bold;
+  display: inline-block;
+}
+.portal-post img{
+  width: auto;
+ height: 700x;
+ max-height: 700px;
+
+}
+.show-post {
+  display: inline-block;
+  padding: 0px 16px 0px 16px;
+  margin: 0px;
+  width: 75%;
+}
+.show-post .post-title {
+  display: block;
+  margin: 0px;
+}
+.show-post .title-subtitle {
+  display: inline-block;
+}
+.show-post .title-subtitle {
+  display: inline-block;
+}
+.show-post .title {
+  color: black;
+  font-size: 28px;
+  display: block;
+  margin: 0px;
+}
+.show-post .subtitle {
+  color: gray;
+  font-size: 12px;
+  float: left;
+  display: block;
+  clear: left;
+}
+.show-post .body {
+  color: black;
+  font-size: 16px;
+  text-align: left;
+  padding-top: 10px;
+  clear: both;
+}
+.show-post .image {
+  width: 50%;
+}
+
+// Index
+.portal-index-row {
+  margin-bottom: 30px;
+  display: block;
+}
+.portal-img-data {
+  display: inline-block;
+  margin: 0px 20px 0px 0px;
+}
+.portal-index-img {
+  width: 100px; 
+  height:100px; 
+  overflow:hidden;
+}
+.portal-index-info {
+  display: inline-block;
+}
+
+//Social Buttons
+.show-post  { 
+  .social-buttons {
+    clear: both;
+    text-align: right;
+    display: inline-block;
+  }
+  .social-buttons {
+    .each_button{
+      float:right;
+      margin: 1%;
+    }
+    .twitter_button {
+    }
+    .pinit_button {
+    }
+    .facebook_button {
+    }
+  }
+}

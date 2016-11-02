@@ -1,82 +1,67 @@
-<div id ='main'>
-  <section class="jumbo">
-      <div class="row">
-          <div class="large-12 columns">
-              <h1>R2-PI2</h1>
+<section id="main-slider" class="no-margin">
+    <div class="carousel slide wet-asphalt">
+        <ol class="carousel-indicators">
+            <li data-target="#main-slider" data-slide-to="0" class="active"></li>
+            <li data-target="#main-slider" data-slide-to="1"></li>
+            <li data-target="#main-slider" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+            <div class="item active" style="background-image: url(<%= asset_path "bonitao.jpg"  %>)">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="carousel-content">
+                                <h1 class="boxed animation animated-item-1">Facilite sua vida!</h1>
+                                <br>
 
-          </div>
-      </div>
-  </section>
-  <section id="about">
-      <div class="row">
-          <div class="small-12 large-12 columns">
-              <div class="text-center">
-                  <h2>Sobre o R2-PI2</h2>
-                  <p>A sujeira acumulada ao longo do dia nem sempre necessita de uma limpeza profunda, uma simples passada de vassoura ou um aspirador de pó resolve o problema. Porém muitas vezes há pouca disposição para executar esta tarefa ou até mesmo falta de tempo. Para evitar o acumulo de poeira, manter o ambiente limpo e sem a interferência humana, está sendo desenvolvido um mecanismo autônomo capaz de aspirar as impurezas: o R2-PI2.</p>
-              </div>
-              <div>
-                  <ul class="small-block-grid-1 medium-block-grid-2 large-block-grid-3">
-                      <li>
-                          <%= image_tag("image1.jpg")%>
-                          <h3 class="text-center">Limpe sua sala</h3>
-                          <p>O R2-PI2 fará a limpeza do seu cômodo para você. E não se preocupe com obstáculos, ele irá desviar deles também! Você não precisa mais se preocupar com baterias de seu aspirador também, o R2-PI2 voltará para a sua base para recarregar e continuará o serviço de onde parou.</p>
-                      </li>
-                      <li>
-                          <%= image_tag("image2.jpg") %>
-                          <h3 class="text-center">O QUE EU BOTO AQUI???</h3>
-                          <p>Phasellus facilisis, nunc in lacinia auctor, eros lacus aliquet velit, quis lobortis risus nunc nec nisi. Maecenas et turpis vitae velit volutpat porttitor a sit amet est. Uthasellus facilisis, nunc in lacinia auctor, eros lacus aliquet velit, quis lobortis risus nunc nec.</p>
-                      </li>
-                      <li>
-                          <%= image_tag("image3.jpg") %>
-                          <h3 class="text-center">Mobilidade</h3>
-                          <p>Controle o seu robô pelo celular, tablet ou notebook. Faça agendamentos de limpezas logando em sua conta nesse site. Acompanhe o progresso do robô em tempo real.</p>
-                      </li>
-                  </ul>
-              </div>
-              <div class="text-center">
-                  <p>Após logar, você pode realizar o um agendamento da aspiração no seu cômodo ou colocar para rodar agora!.</p>
-              </div>
-          </div>
-      </div>
-  </section>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!--/.item-->
+            <div class="item" style="background-image: url(<%= asset_path "r2.jpg"  %>)">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="carousel-content center centered">
+                                <h2 class="boxed animation animated-item-1">Agende uma limpeza!</h2>
 
-  <footer>
-      <div class="copy">
-          <div class="row">
-              <div class="large-12 columns">
-                  <div class="large-4 pull-1 columns text-center">
-                      <p>R2-PI2</p>
-                  </div>
-                  <div class="large-7 push-2 columns text-center">
-                      <!-- Please Leave this link out of respect for the designer -->
-                      <p>UnB Gama - FGA
-                      </p>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </footer>
+                                <br>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!--/.item-->
+            <div class="item" style="background-image: url(<%= asset_path "r2d2.jpg"  %>)">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="carousel-content centered">
+                                <h3 class="boxed animation animated-item-1">Limpe mesmo não estando em casa!</h3>
 
-  <script src="js/vendor/jquery.js"></script>
-  <script src="js/foundation.min.js"></script>
-  <script>
-      $(document).foundation();
-  </script>
-  <script>
-      $(function() {
-          $('a[href*=#]:not([href=#])').click(function() {
-              if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
-                  var target = $(this.hash);
-                  target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
-                  if (target.length) {
-                      $('html,body').animate({
-                          scrollTop: target.offset().top
-                      }, 1000);
-                      return false;
-                  }
-              }
-          });
-      });
-  </script>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 hidden-xs animation animated-item-4">
+                            <div class="centered">
+                                <div class="embed-container">
+                                    <iframe width="560" height="315" src="https://www.youtube.com/watch?v=7kd8kF583H8" frameborder="0" allowfullscreen></iframe>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!--/.item-->
+        </div><!--/.carousel-inner-->
+    </div><!--/.carousel-->
 
-</div>
+    <!-- Buttons to next and prev images -->
+    <a class="prev hidden-xs" href="#main-slider" data-slide="prev">
+        <i class="icon-angle-left"></i>
+    </a>
+    <a class="next hidden-xs" href="#main-slider" data-slide="next">
+        <i class="icon-angle-right"></i>
+    </a>
+</section><!--/#main-slider-->
+
+<%= render partial: "social_media" %>
+<%= render partial: "phrases" %>

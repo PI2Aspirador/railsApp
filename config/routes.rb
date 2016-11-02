@@ -1,15 +1,9 @@
 Rails.application.routes.draw do
-  devise_for :models
   devise_for :users
+  resources :agendas
 
   root 'static_page#home'
 
-  get 'aspirador/agendar' => 'aspirador#agendar'
-
-  post "aspirador/agendar_aspiracao" => "aspirador#agendar_aspiracao"
-  #devise_scope :user do
-  #  root to: "devise/sessions#new"
-  #end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
