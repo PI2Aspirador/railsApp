@@ -1,33 +1,48 @@
-<%= form_for(@agenda) do |f| %>
-  <% if @agenda.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@agenda.errors.count, "error") %> prohibited this agenda from being saved:</h2>
-
-      <ul>
-      <% @agenda.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+<section id="title" class="emerald">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6">
+      </div>
     </div>
-  <% end %>
+  </div>
+</section>
 
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
-  </div>
-  <div class="field">
-    <%= f.label :start_time %><br>
-    <%= f.datetime_select :start_time %>
-  </div>
-  <div class="field">
-    <%= f.label :end_time %><br>
-    <%= f.datetime_select :end_time %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+<section id="portfolio" class="container">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <%= form_for(@agenda) do |f| %>
+        <% if @agenda.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@agenda.errors.count, "error") %> prohibited this agenda from being saved:</h2>
+
+            <ul>
+            <% @agenda.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+        <div class="field">
+          <%= f.label "Título" %><br>
+          <%= f.text_field :title %>
+        </div>
+        <div class="field">
+          <%= f.label "Descrição" %><br>
+          <%= f.text_area :description %>
+        </div>
+        <div class="field">
+          <%= f.label "Horário de Início" %><br>
+          <%= f.datetime_select :start_time %>
+        </div>
+        <div class="field">
+          <%= f.label "Horário de Término" %><br>
+          <%= f.datetime_select :end_time %>
+        </div>
+        <div class="actions">
+          <%= f.submit %>
+        </div>
+      <% end %>
+    </div>
+    </div>
+  </section>

@@ -1,24 +1,32 @@
-<p id="notice"><%= notice %></p>
+<section id="title" class="emerald">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6">
+        <h1>Limpezas agendadas</h1>
 
-<p>
-  <strong>Title:</strong>
-  <%= @agenda.title %>
-</p>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="portfolio" class="container">
+	<div class="row">
+		<div class="col-md-12 center-block event_info">
+			<p id="notice"><%= notice %></p>
+			<div class="basic_information col-md-7 ">
+				  <strong>Title:</strong>
+				  <%= @agenda.title %>
+					<div class="description">
+						  <strong>Description:</strong>
+					  <%= @agenda.description %>
+					</div>
+				  <strong>Start time:</strong>
+				  <%= @agenda.start_time %>
 
-<p>
-  <strong>Description:</strong>
-  <%= @agenda.description %>
-</p>
-
-<p>
-  <strong>Start time:</strong>
-  <%= @agenda.start_time %>
-</p>
-
-<p>
-  <strong>End time:</strong>
-  <%= @agenda.end_time %>
-</p>
-
-<%= link_to 'Edit', edit_agenda_path(@agenda) %> |
-<%= link_to 'Back', agendas_path %>
+				  <strong>End time:</strong>
+				  <%= @agenda.end_time %>
+		</div>
+	</div>
+</div>
+<%= link_to 'Editar', edit_agenda_path(@agenda),class: "btn btn-success" %> |
+<%= link_to 'Voltar', agendas_path,class: "btn btn-default" %>
+</section>
