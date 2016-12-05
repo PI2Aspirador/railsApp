@@ -1,10 +1,12 @@
 #!/bin/bash
 if [ $1 -eq "1" ]; then
-  echo "Start";
+  echo "Iniciar";
+  ./start i;
   exit 0;
 fi
 
 if [ $1 -eq "2" ]; then
-  echo "Stop";
+  echo "Parar";
+  ./start p;
   exit 0;
 fi

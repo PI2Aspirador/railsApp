@@ -3,17 +3,18 @@ class ExecuterController < ApplicationController
 
 
   def index
-    command = params[:command]
+    @cmd = true
+    @command = params[:command]
     script = File.expand_path("execute.sh")
     puts script
-    puts command
+    puts @command
     case params[:command]
     when '1'
       puts "1"
-      system(script+' '+command)
+      system(script+' '+@command)
 
     when '2'
-      system(script+' '+command)
+      system(script+' '+@command)
     else
       puts "DEU RUIM******************"
     end
