@@ -4,7 +4,15 @@ class AgendasController < ApplicationController
   # GET /agendas
   # GET /agendas.json
   def index
-    @agendas = Agenda.all
+    all_agendas = Agenda.all
+    @agendas = Array.new
+      all_agendas.each do |agenda|
+        if agenda.user_id == current_user.id
+          @agendas << agenda
+
+        end
+      end
+
   end
 
   # GET /agendas/1
@@ -25,6 +33,8 @@ class AgendasController < ApplicationController
   # POST /agendas.json
   def create
     @agenda = Agenda.new(agenda_params)
+
+    @agenda.user_id = current_user.id
 
     respond_to do |format|
       if @agenda.save
